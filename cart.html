@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - Интернет-магазин</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <img src="img/logo.jpg" alt="Logo" class="logo">
+            <div class="header-icons">
+                <a href="index.html" class="icon-link" aria-label="Главная">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </a>
+                <a href="orders.html" class="icon-link" aria-label="Личный кабинет">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div id="notificationArea" class="notification-area"></div>
+
+    <main class="main-content">
+        <section class="cart-section">
+            <h2 class="section-title">Корзина</h2>
+            <div id="cartItems" class="cart-items">
+                <!-- Товары корзины будут добавлены динамически -->
+            </div>
+            <div id="emptyCart" class="empty-cart" style="display: none;">
+                <p>Корзина пуста. Перейдите в каталог, чтобы добавить товары.</p>
+            </div>
+        </section>
+
+        <section class="order-section">
+            <h2 class="section-title">Оформление заказа</h2>
+            <form id="orderForm" class="order-form">
+                <div class="form-columns">
+                    <div class="form-column">
+                        <label for="fullName">Имя</label>
+                        <input type="text" id="fullName" name="full_name" required>
+
+                        <label for="phone">Номер телефона</label>
+                        <input type="text" id="phone" name="phone" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="subscribe" name="subscribe">
+                            Подписаться на рассылку
+                        </label>
+
+                        <label for="comment">Комментарий</label>
+                        <textarea id="comment" name="comment" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-column">
+                        <label for="deliveryAddress">Адрес доставки</label>
+                        <input type="text" id="deliveryAddress" name="delivery_address" required>
+
+                        <label for="deliveryDate">Дата доставки</label>
+                        <input type="date" id="deliveryDate" name="delivery_date" required>
+
+                        <label for="deliveryInterval">Временной интервал доставки</label>
+                        <select id="deliveryInterval" name="delivery_interval" required>
+                            <option value="08:00-12:00">08:00-12:00</option>
+                            <option value="12:00-14:00">12:00-14:00</option>
+                            <option value="14:00-18:00">14:00-18:00</option>
+                            <option value="18:00-22:00">18:00-22:00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="order-total">
+                    <p id="totalPrice">Итоговая стоимость: 0 ₽ (стоимость доставки 0 ₽)</p>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="reset" class="reset-button">Сбросить</button>
+                    <button type="submit" class="submit-button">Оформить</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Название компании</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
+
